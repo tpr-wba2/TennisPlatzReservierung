@@ -1,0 +1,84 @@
+% inspired by: http://100startup.com/resources/business-plan.pdf
+%pdfLaTeX
+\documentclass[12pt]{scrartcl} % KOMA-Script with 12 pt font
+
+\usepackage{scrlayer-scrpage} % to change header/footer
+\chead{
+\large\textbf{Tennisplatz Reservierung (Geschäftsplan)}} % centered header
+\cfoot{Projektmitglieder: ...} % eliminate centered footer page number
+
+
+\renewcommand{\familydefault}{\sfdefault} % switch document font to sans serif
+
+\usepackage{paracol} % for two columns and column switching
+\usepackage{xcolor} % for using \colorbox
+
+\usepackage{colortbl} % hline different color
+\newcommand{\myline}{\arrayrulecolor{gray}\hline}
+\setlength\parindent{0pt} % no indents for whole document
+\maxdeadcycles=200 % prevent issue with 100 dead cycles
+
+\begin{document}
+\noindent\rule{\textwidth}{1pt}
+
+\vspace{2cm}
+
+\begin{paracol}{2}
+
+\textcolor{red}{OVERVIEW} \\
+\small Was bieten wir an? \normalsize \\
+\begin{itemize}
+    \item
+    \item
+\end{itemize}
+
+\vspace{1cm}
+
+\small Wer ist unsere Kundschaft? \normalsize \\
+\begin{itemize}
+    \item
+    \item
+\end{itemize}
+
+\vspace{1cm}
+
+\textcolor{red}{KALKULATION} \\
+\small Wie viel berechnen wir? \normalsize \\
+\begin{itemize}
+    \item
+    \item
+\end{itemize}
+
+\vspace{1cm}
+\small Wie werden wir finanziert? \normalsize \\
+\begin{itemize}
+    \item
+    \item
+\end{itemize}
+
+
+\switchcolumn
+
+\textcolor{red}{AKQUISE} \\
+\small Wie erfahren Kunden von unsrem Geschäft? \normalsize \\
+\begin{itemize}
+    \item
+    \item
+\end{itemize}
+\vspace{1cm}
+
+\textcolor{red}{ERFOLG} \\
+\small Das Projekt wird als Erfolg gewertet, wenn es folgende Aspekte deckt: \normalsize
+
+\vspace{0.5cm}
+\small Anzahl an Stammkundschaft \normalsize \\
+
+\small\textit{oder} \\
+
+\small Jahresüberschuss \normalsize \\
+
+\vspace{2cm}
+\textcolor{red}{HINDERNISSE/HERAUSFORDERUNGEN/FRAGEN} \\
+\end{paracol}
+
+\end{document}
