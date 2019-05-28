@@ -1,0 +1,177 @@
+<!Doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+
+		<!--CSS- Verknüpfung-->
+		<link rel="stylesheet" type="text/css" href="globallayout.css" />
+		<script src="helper.js"></script>
+	<style>
+
+			table{
+				margin:30px 30px 30px 30px;
+				width:95%;
+				height:90%;
+				border:1px solid black;
+			}
+
+			caption{
+				text-align:left;
+				padding:15px;
+			}
+
+			th{
+				font-size:15pt;
+				background-color:white;
+				padding:15px;
+				width:95%;
+				height:90%;
+				border:1px solid black;
+				collapse:collapse;
+			}
+
+			tr{
+				border: 1px solid black;
+			}
+
+			td{
+				background-color:white;
+				margin:30px 0 0 0;
+				padding:15px;
+				width:95%;
+				height:90%;
+				/* border:1px solid black; */
+				collapse:collapse;
+				text-align:right;
+			}
+
+			td#artikel{
+				text-align:left;
+
+			}
+
+			td#artikel a{
+
+			}
+
+}
+
+		</style>
+
+
+</head>
+
+	<body>
+	<main>
+
+			<div id="warenkorb">
+				<table>
+				<caption style="font-size:24px"><ins>Ihr Warenkorb</ins></caption>
+
+					<thead>
+
+						<tr>
+
+							
+							<th scope="col">Produkt</th>
+							<th scope="col">Einzelpreis</th>
+							<th scope="col">Anzahl</th>
+							<th scope="col">Gesamt</th>
+
+						</tr>
+
+					</thead>
+
+					<tr>
+					
+						<!--Verlinkungen auf die Detailseiten-->
+						<td id="artikel"><a href="detailseite.html">Wilson Blade 101</a></td>
+						<td>159,00€
+						
+						<td><select name="auswahl" class="dropdown">
+
+							<option value="p1">1</option>
+							<option value="p2">2</option>
+							<option value="p3">3</option>
+							<option value="p4">4</option>
+							<option value="p5">5</option>
+						</select></td>
+						<td>159,00€</td>
+						
+						
+						
+					</tr>
+
+					<tfoot>
+
+						<tr>
+							<td colspan=1 id="artikel">Mehrwertsteuer 19%</td>
+							<td> </td>
+							<td></td>
+							<td>30,21€</td>
+
+						<tr>
+
+							<td colspan=3 id="artikel">Summe Warenkorb</td>
+							<td>159,00€</td>
+
+						</tr>
+						
+						
+
+					</tfoot>
+
+				</table>
+
+			<a href="kategorien.html"><button type="button">weitershoppen</button></a>
+			<a href="anmeldenVorBestellung.html"><button type="button">bezahlen</button></a>
+
+			</div><!--end div warenkorb-->
+</main>
+
+<script>
+
+
+
+	// warenkorb als lokale variable
+	var warenkorb = new Array();
+	
+	// schauen wir mal ob es einen warekorb in der session gibt
+	// und falls ja, holen wir diesen
+	if (localStorage.getItem("WK") !== null)
+		warenkorb = localStorage.getItem("WK");
+
+	// produkt hinzufügen??
+	if (getAllUrlParams().produktid !== undefined) {
+	
+		// id holen, welche in den Warenkorb hinzugefügt werden soll
+		var id = getAllUrlParams().produktid;
+		
+		console.log(id + " hinzufügen");
+		
+		// eigentlich nicht richtig
+		// erst mal schauen ob produkt bereits im warenkorb
+		// falls ja, menge erhöhen
+		// ansonsten hinzufügen
+		var neueBestellposition = {
+				"produktid": 0,
+				"menge": 1
+			};
+		neueBestellposition.produktid = id;
+		warenkorb.push(neueBestellposition);
+		
+		// session updaten
+		localStorage.setItem("WK", warenkorb);
+	} else {
+		console.log("nur anzeigen");
+	}
+
+
+</script>
+
+	</body>
+
+</html>
