@@ -135,6 +135,7 @@
 <script>
 
 
+     alert("yeah");
 
 	// warenkorb als lokale variable
 	var warenkorb = new Array();
@@ -144,6 +145,7 @@
 	if (localStorage.getItem("WK") !== null)
 		warenkorb = localStorage.getItem("WK");
 
+
 	// produkt hinzufügen??
 	if (getAllUrlParams().produktid !== undefined) {
 	
@@ -152,23 +154,40 @@
 		
 		console.log(id + " hinzufügen");
 		
+        var neueBestellposition = [{
+				"produktid": 0,
+				"menge": 1
+			}];
+        
+        // iteriere durch den gesamten warenkorb
+        for(var i = 0; i < warenkorb.length; i++) {
+            var obj = json[i]; // das json objekt im gegebenem index des Warenkorb Arrays
+
+            // Gibt es bereits die produktid, erhöhe die menge um 1
+            // ansonsten push eine neue Bestellposition in den Warenkorb
+            if (obj.produktid == id) { 
+                obj.menge += 1; 
+            }else{
+                neueBestellposition.produktid = id;
+                warenkorb.push(neueBestellposition);
+            }
+
+        }
+		
 		// eigentlich nicht richtig
 		// erst mal schauen ob produkt bereits im warenkorb
 		// falls ja, menge erhöhen
 		// ansonsten hinzufügen
-		var neueBestellposition = {
-				"produktid": 0,
-				"menge": 1
-			};
-		neueBestellposition.produktid = id;
-		warenkorb.push(neueBestellposition);
+        // ->Zeilen 163-175 machen genau diese Schritte
+
+
+
 		
 		// session updaten
 		localStorage.setItem("WK", warenkorb);
 	} else {
 		console.log("nur anzeigen");
 	}
-
 
 </script>
 
