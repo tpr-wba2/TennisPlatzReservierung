@@ -161,7 +161,7 @@
         
         // iteriere durch den gesamten warenkorb
         for(var i = 0; i < warenkorb.length; i++) {
-            var obj = json[i]; // das json objekt im gegebenem index des Warenkorb Arrays
+            var obj = warenkorb[i]; // das json objekt im gegebenem index des Warenkorb Arrays
 
             // Gibt es bereits die produktid, erhöhe die menge um 1
             // ansonsten push eine neue Bestellposition in den Warenkorb
